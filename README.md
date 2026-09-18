@@ -1,5 +1,7 @@
 # Neon Drift
 
+**Play live: https://devaxxn.github.io/MyProject/**
+
 A neon arcade dodge-and-shoot game — pure HTML/CSS/JS, no build step, no dependencies. Fully offline-capable PWA.
 
 ## Play it
@@ -17,7 +19,8 @@ python3 -m http.server 8080
 
 Every asset is referenced by **relative paths**, so the folder deploys as-is to any static host:
 
-- **GitHub Pages** — push the folder to a repo, enable Pages on the root (or `/docs`)
+- **GitHub Pages** — already configured: pushes to `main` auto-publish to https://devaxxn.github.io/MyProject/ within ~1 minute
+- **Other repos / hosts** — enable Pages on the root (or `/docs`), or use Netlify/Vercel/Cloudflare Pages drag-and-drop
 - **Netlify / Vercel / Cloudflare Pages** — drag-and-drop the folder, or connect the repo; no build command, publish directory = project root
 - **Any web server** — copy the files, done
 
