@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Neon Drift</title>
+  <meta name="theme-color" content="#05060f">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="stage">
+    <div id="hud">
+      <div id="p1box" class="pbox">
+        <div class="hud-block">
+          <span class="hud-label">P1</span>
+          <span id="score">0</span>
+        </div>
+        <span id="lives"></span>
+      </div>
+
+      <div id="centerHud">
+        <div id="bossWrap" class="hidden">
+          <span id="bossName">SENTINEL PRIME</span>
+          <div id="bossBar"><i></i></div>
+        </div>
+        <div id="comboRow">
+          <div id="combo" class="combo-chip hidden">×2</div>
+          <div id="combo2" class="combo-chip hidden"></div>
+        </div>
+        <div id="powerups"></div>
+        <div id="lead" class="lead hidden"></div>
+      </div>
+
+      <div id="p2box" class="pbox p2 hidden">
+        <div class="hud-block right">
+          <span class="hud-label">P2</span>
+          <span id="score2">0</span>
+        </div>
+        <span id="lives2"></span>
+      </div>
+
+      <div id="hudRight" class="hud-block right">
+        <span class="hud-label">BEST</span>
+        <span id="best">0</span>
+        <button id="muteBtn" type="button" title="Mute (M)">🔊</button>
+      </div>
+    </div>
+
+    <div id="wrap">
+      <canvas id="game" width="800" height="600"></canvas>
+
+      <div id="startScreen" class="overlay">
+        <h1 class="title">NEON<span>DRIFT</span></h1>
+        <p class="tagline">dodge the fall · catch the glow</p>
+
+        <div class="mode-row">
+          <button class="mode active" data-mode="solo" type="button">SOLO</button>
+          <button class="mode" data-mode="duo" type="button">2-PLAYER</button>
+        </div>
+
+        <div class="diff-row">
+          <button class="diff" data-diff="chill" type="button">CHILL<span>×1 pts · 4 lives</span></button>
+          <button class="diff active" data-diff="normal" type="button">NORMAL<span>×1.5 pts · 3 lives</span></button>
+          <button class="diff" data-diff="nightmare" type="button">NIGHTMARE<span>×2.5 pts · 2 lives</span></button>
+        </div>
+
+        <div class="controls">
+          <div><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> difficulty · <kbd>S</kbd> 2-player mode</div>
+          <div>P1: <kbd>A</kbd><kbd>D</kbd> + <kbd>W</kbd> fire · P2: <kbd>◀</kbd><kbd>▶</kbd> + <kbd>▲</kbd> fire</div>
+          <div>touch: <b>drag left side</b> to steer · <b>hold right side</b> to fire</div>
+          <div>chain orbs for a <b>×5</b> combo · near-misses pay <b>+5</b></div>
+          <div>power-ups <b>stack to a MAX</b> for bonus points · catch the rare <b>OVERDRIVE</b> — or chain 3 of a kind fast</div>
+          <div>drone waves attack — <b>shoot them down</b> · <b>V-waves</b> sweep in formation · <b>swarms</b> hunt you · a <b>BOSS</b> every 60s</div>
+        </div>
+        <div id="pupRates"></div>
+
+        <p class="pulse">CLICK OR PRESS SPACE TO START</p>
+        <button id="installBtn" type="button" class="hidden">⬇ INSTALL APP</button>
+      </div>
+
+      <div id="gameoverScreen" class="overlay hidden">
+        <h2 class="over-title">GAME OVER</h2>
+        <div id="newBest" class="new-best hidden">★ NEW BEST ★</div>
+        <div id="winnerLine" class="winner-line hidden">P1 WINS!</div>
+        <div class="stats">
+          <div>SCORE <span id="finalScore">0</span></div>
+          <div id="finalScore2Row" class="dim hidden">P2 <span id="finalScore2">0</span></div>
+          <div class="dim">BEST <span id="finalBest">0</span></div>
+        </div>
+        <div id="lbBox">
+          <div class="lb-title">HALL OF FAME <span id="lbKey"></span></div>
+          <ol id="lbList" class="lb-list"></ol>
+        </div>
+        <div class="over-btns">
+          <button id="restartBtn" type="button">RESTART</button>
+          <button id="menuBtn" type="button">MENU</button>
+        </div>
+        <p class="hint">R restarts · M mutes</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
